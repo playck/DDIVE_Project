@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import Card from "../Card/Card";
 import "./CardList.scss";
 
 const CardList = () => {
@@ -19,23 +20,18 @@ const CardList = () => {
   }, []);
 
   return (
-    <section className="cardList">
+    <ul className="cardList">
       {cardList &&
         cardList.data.map((card) => (
-          <div key={card.id} className="card">
-            <div className="cardImg">
-              <img src={card.avatar} alt="avatar" />
-            </div>
-            <div className="avatarInfo">
-              <div className="avatarName">
-                {card.first_name}
-                {card.last_name}
-              </div>
-              <div className="avatarEmail">{card.email}</div>
-            </div>
-          </div>
+          <Card
+            id={card.id}
+            avatar={card.avatar}
+            firstName={card.first_name}
+            lastName={card.last_name}
+            email={card.email}
+          />
         ))}
-    </section>
+    </ul>
   );
 };
 
