@@ -1,7 +1,12 @@
 import React from "react";
+import "./Navbar.scss";
 
 const Navbar = () => {
-  return <div></div>;
+  return (
+    <nav>
+      <div className="company">DDIVE</div>
+    </nav>
+  );
 };
 
 export default Navbar;
