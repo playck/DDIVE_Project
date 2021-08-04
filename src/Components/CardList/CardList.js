@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import Card from "../Card/Card";
+import Spinner from "../Spinner/Spinner";
 import "./CardList.scss";
 
 const CardList = () => {
@@ -54,7 +55,7 @@ const CardList = () => {
           ))}
       </ul>
       <div ref={loader} className="loader">
-        {isLoading && "Loading..."}
+        {isLoading && <Spinner />}
       </div>
     </>
   );
