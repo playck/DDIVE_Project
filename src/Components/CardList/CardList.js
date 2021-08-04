@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 import Spinner from "../Spinner/Spinner";
 import "./CardList.scss";
 
-const CardList = () => {
+const CardList = ({ onOpenModal }) => {
   const [cardList, setCardList] = useState(null);
   const [perPage, setPerpage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,6 +51,7 @@ const CardList = () => {
               firstName={card.first_name}
               lastName={card.last_name}
               email={card.email}
+              onClick={onOpenModal}
             />
           ))}
       </ul>
