@@ -51,7 +51,7 @@ const CardList = ({ onOpenModal }) => {
               firstName={card.first_name}
               lastName={card.last_name}
               email={card.email}
-              onClick={onOpenModal}
+              onClick={() => onOpenModal(card.id)}
             />
           ))}
       </ul>

@@ -1,12 +1,11 @@
 import React from "react";
+import Spinner from "../Spinner/Spinner";
 import "./Modal.scss";
 
 const Modal = ({ selectedCard }) => {
-  console.log(selectedCard);
-
   return (
     <section className="modal">
-      {selectedCard && (
+      {selectedCard ? (
         <>
           <img src={selectedCard.data.avatar} alt="avatar" />
           <div className="info">
@@ -25,6 +24,10 @@ const Modal = ({ selectedCard }) => {
             </div>
           </div>
         </>
+      ) : (
+        <div className="loader">
+          <Spinner />
+        </div>
       )}
     </section>
   );

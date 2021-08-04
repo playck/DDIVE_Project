@@ -9,20 +9,28 @@ const Main = () => {
   const [isModalonOff, setIsModalOnOff] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  const onOpenModal = () => {
-    setIsModalOnOff(true);
-    axios
-      .get(`https://reqres.in/api/users/2`)
-      .then(function (res) {
-        setSelectedCard(res.data);
-      })
-      .catch((error) => console.warn(error));
+  const onOffOpenModal = (id) => {
+    if (isModalonOff) {
+      setIsModalOnOff(false);
+      setSelectedCard(null);
+    } else {
+      setIsModalOnOff(true);
+      axios
+        .get(`https://reqres.in/api/users/${id}`)
+        .then(function (res) {
+          setSelectedCard(res.data);
+        })
+        .catch((error) => console.warn(error));
+    }
   };
 
   return (
-    <section className="main">
+    <section
+      className="main"
+      onClick={isModalonOff ? onOffOpenModal : undefined}
+    >
       <SearchBar />
-      <CardList onOpenModal={onOpenModal} />
+      <CardList onOpenModal={onOffOpenModal} />
       {isModalonOff && <Modal selectedCard={selectedCard} />}
     </section>
   );
