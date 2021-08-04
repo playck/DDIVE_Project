@@ -4,7 +4,7 @@ import "./Modal.scss";
 
 const Modal = ({ selectedCard }) => {
   return (
-    <section className="modal">
+    <section className="modal" onClick={(e) => e.stopPropagation()}>
       {selectedCard ? (
         <>
           <img src={selectedCard.data.avatar} alt="avatar" />

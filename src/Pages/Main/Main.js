@@ -13,8 +13,10 @@ const Main = () => {
     if (isModalonOff) {
       setIsModalOnOff(false);
       setSelectedCard(null);
+      document.body.style.overflow = "unset";
     } else {
       setIsModalOnOff(true);
+      document.body.style.overflow = "hidden";
       axios
         .get(`https://reqres.in/api/users/${id}`)
         .then(function (res) {
@@ -25,13 +27,14 @@ const Main = () => {
   };
 
   return (
-    <section
-      className="main"
-      onClick={isModalonOff ? onOffOpenModal : undefined}
-    >
+    <section className="main">
       <SearchBar />
       <CardList onOpenModal={onOffOpenModal} />
-      {isModalonOff && <Modal selectedCard={selectedCard} />}
+      {isModalonOff && (
+        <div className="modalOverlay" onClick={(e) => onOffOpenModal(e)}>
+          {isModalonOff && <Modal selectedCard={selectedCard} />}
+        </div>
+      )}
     </section>
   );
 };
