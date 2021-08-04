@@ -46,6 +46,7 @@ const CardList = ({ onOpenModal }) => {
         {cardList &&
           cardList.data.map((card) => (
             <Card
+              key={card.id}
               id={card.id}
               avatar={card.avatar}
               firstName={card.first_name}
