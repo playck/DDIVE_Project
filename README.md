@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# DDIVE_Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현 화면
+<img src="https://media.vlpt.us/images/playck/post/85c3aee8-32d1-4699-8205-3c7f4d860da9/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202021.%208.%206.%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%201.00.jpg" width="900px" height="450px"> 
 
-## Available Scripts
 
-In the project directory, you can run:
+## 진행 기간 : 2021.08.3 ~ 2021.08.5 (3일)
 
-### `npm start`
+## 참여자 : 김종진 (프론트엔드)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 적용 기술
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+주요 기술 - React.js
 
-### `npm test`
+Css - Scss 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HTTP 통신 라이브러리 - Axios
 
-### `npm run build`
+## 구현 사항
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 회원 정보 리스트 페이지
+  - 레이아웃 구현
+  - 무한 스크롤: IntersectionObserver를 활용하여 구현
+  - 모달: 카드 클릭 시 Modal 창 on , 스크롤 방지 및 외부 영역 클릭시 Modal off
+  - 무한 스크롤 및 Modal 작동 시 로딩 화면 구현
+  - 서버 통신 에러시 에러 화면 구현
+  - 카드 검색: SearchBar에 이름 검색 시 검색 글자가 들어간 카드를 필터링하여 보여줌
+  - 반응형 UI 구현 ( Tablet, Mobile )
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 데모 영상 링크 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://drive.google.com/file/d/1SebzaTJfCuSU4pnA4WVSYF4KQlsdHeM0/view?usp=sharing
