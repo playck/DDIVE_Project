@@ -8,6 +8,7 @@ import "./Main.scss";
 const Main = () => {
   const [isModalonOff, setIsModalOnOff] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  const [userInput, setUserInput] = useState("");
 
   const onOffOpenModal = (id) => {
     if (isModalonOff) {
@@ -26,10 +27,14 @@ const Main = () => {
     }
   };
 
+  const onInputValueChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
   return (
     <section className="main">
-      <SearchBar />
-      <CardList onOpenModal={onOffOpenModal} />
+      <SearchBar onInputValueChange={onInputValueChange} />
+      <CardList onOpenModal={onOffOpenModal} userInput={userInput} />
       {isModalonOff && (
         <div className="modalOverlay" onClick={(e) => onOffOpenModal(e)}>
           {isModalonOff && <Modal selectedCard={selectedCard} />}

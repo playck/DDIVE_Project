@@ -1,13 +1,13 @@
+import React, { useCallback } from "react";
 import axios from "axios";
-import React from "react";
 import { useState, useEffect, useRef } from "react";
 import Card from "../Card/Card";
 import Error from "../Error/Error";
 import Spinner from "../Spinner/Spinner";
 import "./CardList.scss";
 
-const CardList = ({ onOpenModal }) => {
-  const [cardList, setCardList] = useState(null);
+const CardList = ({ onOpenModal, userInput }) => {
+  const [cardDataAPI, setCardDataAPI] = useState(null);
   const [perPage, setPerpage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -19,7 +19,7 @@ const CardList = ({ onOpenModal }) => {
       await axios
         .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
         .then(function (res) {
-          setCardList(res.data);
+          setCardDataAPI(res.data);
           setIsLoading(false);
           setError(false);
         });
@@ -28,14 +28,24 @@ const CardList = ({ onOpenModal }) => {
     }
   };
 
+  const cardList = cardDataAPI?.data.filter((avatar) => {
+    let name = avatar.first_name + avatar.last_name;
+    const filteredCard = name.toLowerCase().includes(userInput.toLowerCase());
+    return filteredCard;
+  });
+
   useEffect(() => {
     perPage !== 0 && getCardtData(perPage);
   }, [perPage, error]);
 
-  const onIntersect = (entries) => {
-    const target = entries[0];
-    if (target.isIntersecting) setPerpage((perPage) => perPage + 12);
-  };
+  const onIntersect = useCallback(
+    (entries) => {
+      if (userInput) return;
+      const target = entries[0];
+      if (target.isIntersecting) setPerpage((perPage) => perPage + 12);
+    },
+    [userInput]
+  );
 
   useEffect(() => {
     if (!loader.current) return;
@@ -44,7 +54,7 @@ const CardList = ({ onOpenModal }) => {
     io.observe(loader.current);
 
     return () => io && io.disconnect();
-  }, [loader]);
+  }, [loader, userInput, onIntersect]);
 
   return (
     <>
@@ -58,7 +68,7 @@ const CardList = ({ onOpenModal }) => {
         <>
           <ul className="cardList">
             {cardList &&
-              cardList.data.map((card) => (
+              cardList.map((card) => (
                 <Card
                   key={card.id}
                   id={card.id}
