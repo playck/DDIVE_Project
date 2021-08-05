@@ -4,6 +4,7 @@ import axios from "axios";
 import Card from "../Card/Card";
 import Error from "../Error/Error";
 import Spinner from "../Spinner/Spinner";
+import { SERVER } from "../../config";
 import "./CardList.scss";
 
 const CardList = ({ onOpenModal, userInput }) => {
@@ -17,7 +18,7 @@ const CardList = ({ onOpenModal, userInput }) => {
     try {
       setIsLoading(true);
       await axios
-        .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
+        .get(`${SERVER}api/users?per_page=${perPage}&page=1`)
         .then(function (res) {
           setCardDataAPI(res.data);
           setIsLoading(false);
