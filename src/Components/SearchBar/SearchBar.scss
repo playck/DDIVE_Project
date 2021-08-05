@@ -1,6 +1,6 @@
 .searchBar {
   position: relative;
-  width: 200px;
+  width: 220px;
   height: 40px;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
@@ -21,5 +21,11 @@
     left: 10px;
     width: 13px;
     height: 13px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .searchBar {
+    margin: 0 auto;
   }
 }
