@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import Card from "../Card/Card";
@@ -17,7 +18,8 @@ const CardList = ({ onOpenModal, userInput }) => {
     try {
       setIsLoading(true);
       await axios
-        .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
+        .get(`https:/ge=1`)
+        // .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
         .then(function (res) {
           setCardDataAPI(res.data);
           setIsLoading(false);
@@ -88,6 +90,11 @@ const CardList = ({ onOpenModal, userInput }) => {
       )}
     </>
   );
+};
+
+CardList.propTypes = {
+  onOpenModal: PropTypes.func.isRequired,
+  userInput: PropTypes.string.isRequired,
 };
 
 export default CardList;

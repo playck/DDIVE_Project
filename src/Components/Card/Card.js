@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Card.scss";
 
 const Card = ({ id, avatar, firstName, lastName, email, onClick }) => {
@@ -16,6 +17,15 @@ const Card = ({ id, avatar, firstName, lastName, email, onClick }) => {
       </div>
     </li>
   );
+};
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  avatar: PropTypes.any.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Card;

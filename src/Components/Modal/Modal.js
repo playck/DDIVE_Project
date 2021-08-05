@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Spinner from "../Spinner/Spinner";
 import "./Modal.scss";
 
@@ -31,6 +32,10 @@ const Modal = ({ selectedCard }) => {
       )}
     </section>
   );
+};
+
+Modal.propTypes = {
+  selectedCard: PropTypes.object.isRequired,
 };
 
 export default Modal;
