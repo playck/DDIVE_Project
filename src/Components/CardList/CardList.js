@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { useState, useEffect, useRef } from "react";
 import Card from "../Card/Card";
 import Error from "../Error/Error";
 import Spinner from "../Spinner/Spinner";
@@ -18,8 +17,7 @@ const CardList = ({ onOpenModal, userInput }) => {
     try {
       setIsLoading(true);
       await axios
-        .get(`https:/ge=1`)
-        // .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
+        .get(`https://reqres.in/api/users?per_page=${perPage}&page=1`)
         .then(function (res) {
           setCardDataAPI(res.data);
           setIsLoading(false);
