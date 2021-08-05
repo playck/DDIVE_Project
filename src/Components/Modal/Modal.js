@@ -35,7 +35,7 @@ const Modal = ({ selectedCard }) => {
 };
 
 Modal.propTypes = {
-  selectedCard: PropTypes.object.isRequired,
+  selectedCard: PropTypes.object,
 };
 
 export default Modal;
